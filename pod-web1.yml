@@ -4,7 +4,7 @@ metadata:
    name: myweb
 spec:
    containers:
-    - name: container-apache
-      image: nginx:latest
+    - name: chatter
+      image: maximus7022/chat_node
       ports:
-        - containerPort: 80
+        - containerPort: 3000

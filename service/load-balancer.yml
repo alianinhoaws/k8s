@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web2
-          image: alianinho/aliaweb:v1
+          image: alianinho/aliaweb
           ports:
            - containerPort: 80
 
