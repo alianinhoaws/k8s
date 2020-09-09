@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: myweb
+   labels: 
+     env: prod
+     app: main
+     tier: front
+     owner: Step
+spec:
+   containers:
+    - name: container-apache
+      image: httpd:latest
+      ports:
+        - containerPort: 8080
+    - name: container-nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 8088

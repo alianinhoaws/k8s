@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: web-manifest
+  labels: 
+    app: manifest-app
+spec:
+  selector:
+    matchLabels:
+      project: web2
+  template:
+    metadata:
+      labels:
+        project: web2
+    spec:
+      containers:
+        - name: web2
+          image: nginx
+          ports:
+           - containerPort: 80

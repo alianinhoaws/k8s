@@ -1,0 +1,21 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: web-manifest-replica
+  labels: 
+    app: manifest-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: web-r
+  template:
+    metadata:
+      labels:
+        project: web-r
+    spec:
+      containers:
+        - name: web-r
+          image: httpd
+          ports:
+           - containerPort: 80
