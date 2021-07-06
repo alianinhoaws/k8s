@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-pod-startup-http
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.19.1
+      startupProbe:
+        httpGet:
+          path: /  #add /name
+          port: 80
+        failureThreshold: 30 #how much attempts need to be exceed to fail the health-check
+        periodSeconds: 5 #frequently of the health-check 30 and 5 aprox 70 seconds to Ready status after Running

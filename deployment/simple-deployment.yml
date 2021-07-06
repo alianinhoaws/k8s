@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deploy
+spec: #Specifies which Pods are managed by the Deployment.
+  replicas: 3 #special to deployment (quantity of replica set)
+  selector: #pods that matched by the selector regardless what the process was used to create them will be managed by the deployment
+    matchLabels:
+      app: simple-deploy #label app=simple-deploy
+  template: #specification of creation a new pods
+    metadata: #pod template
+      labels:
+        app: simple-deploy #pods that will be created by the deployment will be managed by this deployment because of selector match labels
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.19.1
+          ports:
+            - containerPort: 80
